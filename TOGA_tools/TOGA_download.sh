@@ -39,7 +39,6 @@ while IFS=$'\t' read -r SPP CN TAXID TAX ABB ASSEMBLY REST; do
 	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneAnnotation.bed.gz"
 	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneAnnotation.gtf.gz"
     wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneInactivatingMutations.tsv.gz"
-	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/processedPseudogeneAnnotation.bed.gz"
 	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/loss_summ_data.tsv.gz"
     wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/orthologsClassification.tsv.gz"
 	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/processedPseudogeneAnnotation.bed.gz"
