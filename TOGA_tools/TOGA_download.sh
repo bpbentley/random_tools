@@ -34,12 +34,19 @@ while IFS=$'\t' read -r SPP CN TAXID TAX ABB ASSEMBLY REST; do
 
     echo "$LEVEL"
 
-    wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/codonAlignments.fa.gz"
     wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/codonAlignments.allCESARexons.fa.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/codonAlignments.fa.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneAnnotation.bed.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneAnnotation.gtf.gz"
     wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneInactivatingMutations.tsv.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/processedPseudogeneAnnotation.bed.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/loss_summ_data.tsv.gz"
     wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/orthologsClassification.tsv.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/processedPseudogeneAnnotation.bed.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/proteinAlignments.allCESARexons.fa.gz"
+	wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/pproteinAlignments.fa.gz"
 
     cd ..
 done < "$INPUT_FILE"
 
-echo "Done with downloads"
+echo "Done with all TOGA annotation downloads."
