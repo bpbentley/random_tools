@@ -34,10 +34,12 @@ while IFS=$'\t' read -r SPP CN TAXID TAX ABB ASSEMBLY REST; do
 
     echo "$LEVEL"
 
-    wget --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/codonAlignments.fa.gz"
-    wget --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/codonAlignments.allCESARexons.fa.gz"
-    wget --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneInactivatingMutations.tsv.gz"
-    wget --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/orthologsClassification.tsv.gz"
+    wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/codonAlignments.fa.gz"
+    wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/codonAlignments.allCESARexons.fa.gz"
+    wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/geneInactivatingMutations.tsv.gz"
+    wget -q --no-check-certificate "${TOGA_URL}/${LEVEL}/${SPP// /_}__${CN// /_}__${ABB}/orthologsClassification.tsv.gz"
 
     cd ..
 done < "$INPUT_FILE"
+
+echo "Done with downloads"
