@@ -18,7 +18,7 @@ while IFS=$'\t' read -r SPP CN TAXID TAX ABB ASSEMBLY REST; do
     echo "$SPP"
 
     # species abbreviation like zalCal
-    ABBREV=$(echo "$SPP" | awk -F"_" '{print tolower(substr($1,1,3)) toupper(substr($2,1,1)) tolower(substr($2,2,2))}')
+    ABBREV=$(echo "$SPP" | awk -F" " '{print tolower(substr($1,1,3)) toupper(substr($2,1,1)) tolower(substr($2,2,2))}')
     mkdir -p "$ABBREV"
     cd "$ABBREV" || exit
 
